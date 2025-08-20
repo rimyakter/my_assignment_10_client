@@ -11,7 +11,10 @@ const Header = () => {
         <NavLink to="/addRoommate">Find-Roommate</NavLink>
       </li>
       <li>
-        <NavLink to="/roommates/browse-listing">Browse Listing</NavLink>
+        <NavLink to="/roommates/browse-listing">Browse-Listing-Page</NavLink>
+      </li>
+      <li>
+        <NavLink to="/users">All-Users</NavLink>
       </li>
       <li>
         <NavLink>My Listing</NavLink>

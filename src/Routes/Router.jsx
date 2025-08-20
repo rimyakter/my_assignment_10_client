@@ -8,6 +8,7 @@ import BrowseListing from "../Component/BrowseListing";
 import DetailRoommate from "../Component/DetailRoommate";
 import Login from "../Component/Login";
 import Register from "../Component/Register";
+import Users from "../Component/Users";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ export const router = createBrowserRouter([
       {
         path: "/updateRoommate",
         element: <UpdateRoommate></UpdateRoommate>,
+      },
+      {
+        path: "/users",
+        element: <Users></Users>,
+        loader: () => fetch("http://localhost:5000/users/"),
       },
       {
         path: "/login",
