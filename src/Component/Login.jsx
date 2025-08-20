@@ -1,8 +1,23 @@
+import { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
 
 const Login = () => {
+  const { signInUser } = use(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    //firebase sign-In
+
+    signInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+      });
   };
   return (
     <div>
