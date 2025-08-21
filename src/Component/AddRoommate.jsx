@@ -1,13 +1,17 @@
-import React from "react";
+import React, { use } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Context/AuthContext";
 
 const AddRoommate = () => {
+  const { user } = use(AuthContext);
   const handleAddRoommate = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const roommateData = Object.fromEntries(formData.entries());
-    console.log(roommateData);
+    // Force add user info from firebase (so it can't be tampered with)
+    roommateData.email = user?.email || "";
+    roommateData.username = user?.displayName || "Anonymous";
 
     //Send Roommate Data to the Database
 
@@ -142,6 +146,8 @@ const AddRoommate = () => {
               <input
                 name="email"
                 type="email"
+                value={user?.email || ""}
+                readOnly
                 className="input w-full border-gray-300 rounded-md"
                 placeholder="Enter Email"
                 required
@@ -152,6 +158,8 @@ const AddRoommate = () => {
               <input
                 name="username"
                 type="text"
+                value={user?.displayName || ""}
+                readOnly
                 className="input w-full border-gray-300 rounded-md"
                 placeholder="Enter UserName"
                 required

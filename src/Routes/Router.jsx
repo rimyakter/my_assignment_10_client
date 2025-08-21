@@ -3,13 +3,14 @@ import Error from "../Component/Error";
 import Home from "../Component/Home";
 import MainLayout from "../Layout/MainLayout";
 import AddRoommate from "../Component/AddRoommate";
-import UpdateRoommate from "../Component/UpdateRoommate";
+
 import BrowseListing from "../Component/BrowseListing";
 import DetailRoommate from "../Component/DetailRoommate";
 import Login from "../Component/Login";
 import Register from "../Component/Register";
 import Users from "../Component/Users";
 import PrivateRouter from "../Context/PrivateRoute";
+import MyListings from "../Component/MyListings";
 
 export const router = createBrowserRouter([
   {
@@ -39,13 +40,22 @@ export const router = createBrowserRouter([
       },
       {
         path: "/roommates/browse-listing/:id",
-        element: <DetailRoommate></DetailRoommate>,
+        element: (
+          <PrivateRouter>
+            <DetailRoommate></DetailRoommate>
+          </PrivateRouter>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/roommates/browse-listing/${params.id}`),
       },
+
       {
-        path: "/updateRoommate",
-        element: <UpdateRoommate></UpdateRoommate>,
+        path: "/my-listings",
+        element: (
+          <PrivateRouter>
+            <MyListings></MyListings>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/users",

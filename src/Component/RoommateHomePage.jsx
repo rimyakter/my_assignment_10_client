@@ -12,6 +12,7 @@ const RoommateHomePage = ({ data }) => {
   return (
     <div className="card w-96 bg-white shadow-md rounded-2xl border border-gray-200 hover:shadow-xl transition duration-300">
       {/* Header */}
+
       <div className="card-body">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold flex items-center gap-2 text-gray-800">

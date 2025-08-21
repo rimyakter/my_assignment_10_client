@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <div
-      className="border-b border-white text-white bg-gradient-to-r from-[#3a8ef6] to-[#1e1e2f] shadow-md w-full sticky top-0 z-50"
+      className="border-b border-white text-black bg-gradient-to-r from-white to-[#3a8ef6] shadow-md w-full sticky top-0 z-50"
       data-aos="fade-down"
     >
       <div className="w-11/12 mx-auto py-4 flex items-center justify-between">
@@ -48,7 +48,7 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <div
-          className="hidden md:flex space-x-6 text-md nav"
+          className="hidden md:flex space-x-6 text-sm nav"
           data-aos="fade-left"
           data-aos-delay="200"
         >
@@ -56,7 +56,7 @@ const Header = () => {
           <NavLink to="/addRoommate">Find-Roommate</NavLink>
           <NavLink to="/roommates/browse-listing">Browse-Listing-Page</NavLink>
           <NavLink to="/users">All-Users</NavLink>
-          <NavLink>My Listing</NavLink>
+          <NavLink to="my-listings">My-Listing</NavLink>
         </div>
 
         {/* Mobile Hamburger Icon */}

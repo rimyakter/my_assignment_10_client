@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setUid(currentUser.uid);
+      // setUid(currentUser.uid);
       setLoading(false);
     });
     return () => {
@@ -53,7 +53,6 @@ const AuthProvider = ({ children }) => {
   };
 
   const userInfo = {
-    uid,
     user,
     loading,
     setUser,

@@ -24,7 +24,9 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1000,
         });
-        navigate(`${location.state ? location.state : "/"}`);
+        // if redirected from a private page, go back there, otherwise go home
+        const redirectTo = location.state?.from || "/";
+        navigate(redirectTo, { replace: true });
       })
       .catch((error) => {
         Swal.fire({
