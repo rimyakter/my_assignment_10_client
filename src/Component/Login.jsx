@@ -1,8 +1,11 @@
 import { use } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { signInUser } = use(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,9 +17,23 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         const user = result.user;
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your Successfully Logged In",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
-        const errorMessage = error.message;
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Login Failed! Try Again!",
+          showConfirmButton: false,
+          timer: 1000,
+        });
       });
   };
   return (

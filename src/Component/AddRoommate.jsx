@@ -28,7 +28,13 @@ const AddRoommate = () => {
           });
           form.reset();
         } else {
-          console.log("failed");
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Registration Failed! Try Again!",
+            showConfirmButton: false,
+            timer: 1000,
+          });
         }
       });
   };
@@ -54,6 +60,7 @@ const AddRoommate = () => {
                 type="text"
                 className="input w-full border-gray-300 rounded-md"
                 placeholder="Enter Title"
+                required
               />
             </fieldset>
             <fieldset className="fieldset bg-gray-50 border border-gray-200 rounded-xl p-4">
@@ -63,6 +70,7 @@ const AddRoommate = () => {
                 type="text"
                 className="input w-full border-gray-300 rounded-md"
                 placeholder="Enter Your Location"
+                required
               />
             </fieldset>
             <fieldset className="fieldset bg-gray-50 border border-gray-200 rounded-xl p-4">
@@ -72,6 +80,7 @@ const AddRoommate = () => {
                 type="number"
                 className="input w-full border-gray-300 rounded-md"
                 placeholder="Enter Rent Amount"
+                required
               />
             </fieldset>
             <fieldset className="fieldset bg-gray-50 border border-gray-200 rounded-xl p-4">
@@ -83,6 +92,7 @@ const AddRoommate = () => {
                 type="text"
                 className="input w-full border-gray-300 rounded-md"
                 placeholder="Enter Room Type"
+                required
               />
             </fieldset>
             <fieldset className="fieldset bg-gray-50 border border-gray-200 rounded-xl p-4">
@@ -112,6 +122,7 @@ const AddRoommate = () => {
                 type="text"
                 className="input w-full border-gray-300 rounded-md"
                 placeholder="Enter Your Contact Info"
+                required
               />
             </fieldset>
             <fieldset className="fieldset bg-gray-50 border border-gray-200 rounded-xl p-4">
@@ -123,6 +134,7 @@ const AddRoommate = () => {
                 type="text"
                 className="input w-full border-gray-300 rounded-md"
                 placeholder="Availability (available or not)"
+                required
               />
             </fieldset>
             <fieldset className="fieldset bg-gray-50 border border-gray-200 rounded-xl p-4">
@@ -132,6 +144,7 @@ const AddRoommate = () => {
                 type="email"
                 className="input w-full border-gray-300 rounded-md"
                 placeholder="Enter Email"
+                required
               />
             </fieldset>
             <fieldset className="fieldset bg-gray-50 border border-gray-200 rounded-xl p-4">
@@ -141,6 +154,7 @@ const AddRoommate = () => {
                 type="text"
                 className="input w-full border-gray-300 rounded-md"
                 placeholder="Enter UserName"
+                required
               />
             </fieldset>
           </div>

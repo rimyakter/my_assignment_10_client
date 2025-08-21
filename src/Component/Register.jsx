@@ -1,13 +1,16 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate, useNavigation } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser } = use(AuthContext);
+  const navigate = useNavigate();
+  const { createUser, user, setUser, updateUser } = use(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
+    const photo = form.photo.value;
+    const name = form.name.value;
     const formData = new FormData(form);
     const { email, password, ...restFormData } = Object.fromEntries(
       formData.entries()
@@ -17,6 +20,16 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
+        updateUser({
+          displayName: name,
+          photoURL: photo || "https://i.ibb.co/placeholder.png",
+        })
+          .then(() => {
+            setUser(user);
+          })
+          .catch((error) => {
+            setUser(user);
+          });
 
         const userProfile = {
           email,
@@ -40,8 +53,9 @@ const Register = () => {
                 icon: "success",
                 title: "Your Account is created",
                 showConfirmButton: false,
-                timer: 1500,
+                timer: 1000,
               });
+              navigate("/");
             }
           });
       })
@@ -63,6 +77,7 @@ const Register = () => {
                   type="text"
                   className="input"
                   placeholder="Your Name"
+                  required
                 />
                 <label className="label">Photo Url</label>
                 <input

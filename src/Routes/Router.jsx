@@ -9,6 +9,7 @@ import DetailRoommate from "../Component/DetailRoommate";
 import Login from "../Component/Login";
 import Register from "../Component/Register";
 import Users from "../Component/Users";
+import PrivateRouter from "../Context/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ export const router = createBrowserRouter([
 
       {
         path: "/addRoommate",
-        element: <AddRoommate></AddRoommate>,
+        element: (
+          <PrivateRouter>
+            <AddRoommate></AddRoommate>
+          </PrivateRouter>
+        ),
       },
 
       {
