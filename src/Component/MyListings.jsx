@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const MyListings = () => {
   const { user } = useContext(AuthContext);
@@ -42,16 +43,12 @@ const MyListings = () => {
     });
   };
 
-  // Update handler (redirect to update page or modal)
-  const handleUpdate = (id) => {
-    // For simplicity, redirect to a separate page
-    window.location.href = `/update-roommate/${id}`;
-  };
+  const handleUpdate = () => {};
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
-        My Roommate Posts
+        My All Posts
       </h1>
 
       {roommates.length === 0 ? (
@@ -59,22 +56,25 @@ const MyListings = () => {
           You haven’t added any posts yet.
         </p>
       ) : (
-        <div className="overflow-x-auto bg-white shadow-lg rounded-xl p-6">
+        <div className="overflow-x-auto bg-white shadow-md rounded-xl p-6">
           <table className="min-w-full border-collapse border border-gray-200">
             <thead>
-              <tr className="bg-gray-100 text-left">
+              <tr className="bg-gray-100 text-left text-sm">
                 <th className="p-3 border border-gray-200">Title</th>
                 <th className="p-3 border border-gray-200">Location</th>
                 <th className="p-3 border border-gray-200">Rent</th>
                 <th className="p-3 border border-gray-200">Room Type</th>
                 <th className="p-3 border border-gray-200">Availability</th>
+                <th className="p-3 border border-gray-200">
+                  Lifestyle Preferences
+                </th>
                 <th className="p-3 border border-gray-200">Contact</th>
                 <th className="p-3 border border-gray-200">Actions</th>
               </tr>
             </thead>
             <tbody>
               {roommates.map((roommate) => (
-                <tr key={roommate._id} className="hover:bg-gray-50">
+                <tr key={roommate._id} className="hover:bg-gray-50 text-xs">
                   <td className="p-3 border border-gray-200">
                     {roommate.title}
                   </td>
@@ -91,15 +91,19 @@ const MyListings = () => {
                     {roommate.availability}
                   </td>
                   <td className="p-3 border border-gray-200">
+                    {roommate.lifestylePreferences}
+                  </td>
+                  <td className="p-3 border border-gray-200">
                     {roommate.contactInfo}
                   </td>
                   <td className="p-3 border border-gray-200 space-x-2">
-                    <button
+                    <Link
+                      to={`/updatePost/${roommate._id}`}
                       className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
                       onClick={() => handleUpdate(roommate._id)}
                     >
                       Update
-                    </button>
+                    </Link>
                     <button
                       className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
                       onClick={() => handleDelete(roommate._id)}

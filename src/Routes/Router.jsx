@@ -11,6 +11,7 @@ import Register from "../Component/Register";
 import Users from "../Component/Users";
 import PrivateRouter from "../Context/PrivateRoute";
 import MyListings from "../Component/MyListings";
+import UpdatePost from "../Component/UpdatePost";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,12 @@ export const router = createBrowserRouter([
             <MyListings></MyListings>
           </PrivateRouter>
         ),
+      },
+      {
+        path: "/updatePost/:id",
+        element: <UpdatePost></UpdatePost>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/roommates/${params.id}`),
       },
       {
         path: "/users",
