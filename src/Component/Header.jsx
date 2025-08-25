@@ -56,7 +56,7 @@ const Header = () => {
           <NavLink to="/addRoommate">Find-Roommate</NavLink>
           <NavLink to="/roommates/browse-listing">Browse-Listing-Page</NavLink>
           <NavLink to="/users">All-Users</NavLink>
-          <NavLink to="my-listings">My-Listing</NavLink>
+          <NavLink to="/my-listings">My-Listing</NavLink>
         </div>
 
         {/* Mobile Hamburger Icon */}
@@ -157,7 +157,11 @@ const Header = () => {
           >
             All-Users
           </NavLink>
-          <NavLink onClick={() => setMenuOpen(false)} className="block">
+          <NavLink
+            to="/my-listings"
+            onClick={() => setMenuOpen(false)}
+            className="block"
+          >
             My Listing
           </NavLink>
 
