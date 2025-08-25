@@ -26,7 +26,7 @@ const RoommateFeatures = () => {
   return (
     <section className=" py-16">
       <div className="container w-11/12 mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">
+        <h2 className="text-xl md:text-3xl font-bold text-center mb-10">
           Finding a great roommate should be hassle free
         </h2>
 
@@ -37,8 +37,10 @@ const RoommateFeatures = () => {
               className="card  bg-opacity-80 shadow-xl p-6 rounded-xl flex flex-col items-center text-center"
             >
               <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="">{feature.description}</p>
+              <h3 className="text-lg md:text-xl font-semibold mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-sm md:text-lg">{feature.description}</p>
             </div>
           ))}
         </div>

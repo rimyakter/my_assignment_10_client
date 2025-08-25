@@ -33,7 +33,7 @@ const FAQ = () => {
   return (
     <section className="py-12 ">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">
+        <h2 className="text-xl md:text-3xl font-bold text-center mb-10">
           Frequently Asked Questions
         </h2>
 
@@ -48,7 +48,7 @@ const FAQ = () => {
                 checked={openIndex === index}
                 onChange={() => toggleFAQ(index)}
               />
-              <div className="collapse-title text-black text-lg font-medium flex justify-between items-center">
+              <div className="collapse-title text-black text-sm md:text-lg font-medium flex justify-between items-center">
                 {faq.question}
                 {openIndex === index ? (
                   <FaChevronUp className="ml-2" />
@@ -56,7 +56,7 @@ const FAQ = () => {
                   <FaChevronDown className="ml-2" />
                 )}
               </div>
-              <div className="collapse-content text-black">
+              <div className="collapse-content text-black text-xs md:text-sm">
                 <p>{faq.answer}</p>
               </div>
             </div>

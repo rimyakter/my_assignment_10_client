@@ -15,7 +15,7 @@ const RoommateHomePage = ({ data }) => {
 
       <div className="card-body">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold flex items-center gap-2 ">
+          <h2 className="text-lg md:text-xl font-bold flex items-center gap-2 ">
             <FaUser style={{ color: accentColor }} /> {title}
           </h2>
         </div>
@@ -30,19 +30,21 @@ const RoommateHomePage = ({ data }) => {
           <div className="flex items-center gap-2 ">
             <FaHome style={{ color: accentColor }} />
             <span
-              className="badge badge-outline"
+              className="badge badge-outline text-xs md:text-md py-4 mr-4"
               style={{ borderColor: accentColor, color: accentColor }}
             >
               {roomType} Room
             </span>
           </div>
-          <span className="text-lg font-semibold ">{rentAmount}৳ / month</span>
+          <span className="text-sm md:text-lg font-semibold ">
+            {rentAmount}৳ / month
+          </span>
         </div>
 
         {/* Availability */}
         <div className="mt-3">
           <span
-            className={`px-3 py-1 rounded-full text-sm font-medium ${
+            className={`px-3 py-1 rounded-full text-xs md:text-sm font-medium ${
               availability === "yes"
                 ? "bg-green-100 text-green-700"
                 : "bg-red-100 text-red-700"
