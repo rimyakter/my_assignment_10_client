@@ -18,6 +18,16 @@ const Register = () => {
     const { email, password, ...restFormData } = Object.fromEntries(
       formData.entries()
     );
+    // Password Validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Weak Password",
+        text: "Password must be at least 6 characters, include an uppercase and a lowercase letter.",
+      });
+      return;
+    }
 
     //create user in the firebase
     createUser(email, password)
