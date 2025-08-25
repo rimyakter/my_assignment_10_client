@@ -18,7 +18,7 @@ const UpdateRoommate = () => {
     updatedData.email = user?.email || "";
     updatedData.username = user?.displayName || "Anonymous";
 
-    fetch(`http://localhost:5000/roommates/${id}`, {
+    fetch(`https://my-assignment-10-server-xi.vercel.app/roommates/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updatedData),
@@ -34,7 +34,15 @@ const UpdateRoommate = () => {
         });
         navigate("/my-listings");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Your data updated failed!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
   };
 
   return (

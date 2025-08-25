@@ -23,7 +23,8 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/roommates"),
+        loader: () =>
+          fetch("https://my-assignment-10-server-xi.vercel.app/roommates"),
         hydrateFallbackElement: <Loading></Loading>,
       },
 
@@ -39,7 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "/roommates/browse-listing",
         element: <BrowseListing></BrowseListing>,
-        loader: () => fetch("http://localhost:5000/roommates/browse-listing"),
+        loader: () =>
+          fetch(
+            "https://my-assignment-10-server-xi.vercel.app/roommates/browse-listing"
+          ),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
@@ -50,7 +54,9 @@ export const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/roommates/browse-listing/${params.id}`),
+          fetch(
+            `https://my-assignment-10-server-xi.vercel.app/roommates/browse-listing/${params.id}`
+          ),
         hydrateFallbackElement: <Loading></Loading>,
       },
 
@@ -70,13 +76,16 @@ export const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/roommates/${params.id}`),
+          fetch(
+            `https://my-assignment-10-server-xi.vercel.app/roommates/${params.id}`
+          ),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/users",
         element: <Users></Users>,
-        loader: () => fetch("http://localhost:5000/users/"),
+        loader: () =>
+          fetch("https://my-assignment-10-server-xi.vercel.app/users/"),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {

@@ -15,7 +15,7 @@ const AddRoommate = () => {
     roommateData.email = user?.email || "";
     roommateData.username = user?.displayName || "Anonymous";
 
-    fetch("http://localhost:5000/roommates", {
+    fetch("https://my-assignment-10-server-xi.vercel.app/roommates", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(roommateData),

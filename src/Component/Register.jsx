@@ -48,7 +48,7 @@ const Register = () => {
         };
 
         // Save Profile Info in database
-        fetch("http://localhost:5000/users", {
+        fetch("https://my-assignment-10-server-xi.vercel.app/users", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userProfile),
@@ -67,7 +67,15 @@ const Register = () => {
             }
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Your Account creation failed",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      });
   };
 
   const handleGoogleLogin = () => {
@@ -79,7 +87,7 @@ const Register = () => {
           email: user.email,
           photo: user.photoURL,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://my-assignment-10-server-xi.vercel.app/users", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(saveUser),
