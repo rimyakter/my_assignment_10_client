@@ -1,9 +1,11 @@
 import React, { use } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthContext";
+import { Navigate, useNavigate } from "react-router";
 
 const AddRoommate = () => {
   const { user } = use(AuthContext);
+  const navigate = useNavigate();
   const handleAddRoommate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -31,11 +33,12 @@ const AddRoommate = () => {
             draggable: true,
           });
           form.reset();
+          navigate("/my-listings");
         } else {
           Swal.fire({
             position: "top-end",
             icon: "error",
-            title: "Registration Failed! Try Again!",
+            title: "Failed! Try Again!",
             showConfirmButton: false,
             timer: 1000,
           });

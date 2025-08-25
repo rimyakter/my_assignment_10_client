@@ -60,7 +60,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/updatePost/:id",
-        element: <UpdatePost></UpdatePost>,
+        element: (
+          <PrivateRouter>
+            <UpdatePost></UpdatePost>
+          </PrivateRouter>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/roommates/${params.id}`),
       },

@@ -91,7 +91,7 @@ const MyListings = () => {
                     {roommate.availability}
                   </td>
                   <td className="p-3 border border-gray-200">
-                    {roommate.lifestylePreferences}
+                    {roommate.email}
                   </td>
                   <td className="p-3 border border-gray-200">
                     {roommate.contactInfo}

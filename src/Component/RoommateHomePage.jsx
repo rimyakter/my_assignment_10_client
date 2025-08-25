@@ -7,27 +7,27 @@ const RoommateHomePage = ({ data }) => {
 
   const { _id, title, location, rentAmount, roomType, availability } = data;
 
-  const accentColor = "#C85A3C";
+  const accentColor = "#1447E6";
 
   return (
-    <div className="card w-96 bg-white shadow-md rounded-2xl border border-gray-200 hover:shadow-xl transition duration-300">
+    <div className="card shadow-xl rounded-2xl border  ">
       {/* Header */}
 
       <div className="card-body">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold flex items-center gap-2 text-gray-800">
+          <h2 className="text-xl font-bold flex items-center gap-2 ">
             <FaUser style={{ color: accentColor }} /> {title}
           </h2>
         </div>
 
         {/* Location */}
-        <p className="flex items-center gap-2 text-gray-600 mt-2">
+        <p className="flex items-center gap-2  mt-2">
           <FaMapMarkerAlt style={{ color: accentColor }} /> {location}
         </p>
 
         {/* Rent & Room Info */}
         <div className="mt-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-gray-700">
+          <div className="flex items-center gap-2 ">
             <FaHome style={{ color: accentColor }} />
             <span
               className="badge badge-outline"
@@ -36,9 +36,7 @@ const RoommateHomePage = ({ data }) => {
               {roomType} Room
             </span>
           </div>
-          <span className="text-lg font-semibold text-gray-800">
-            {rentAmount}৳ / month
-          </span>
+          <span className="text-lg font-semibold ">{rentAmount}৳ / month</span>
         </div>
 
         {/* Availability */}
@@ -55,13 +53,13 @@ const RoommateHomePage = ({ data }) => {
         </div>
 
         {/* Divider */}
-        <div className="divider border-gray-200 my-4"></div>
+        <div className="divider  my-4"></div>
 
         {/* Action Button */}
         <div className="card-actions justify-end mt-5">
           <Link
             to={`/roommates/browse-listing/${_id}`}
-            className="btn rounded-xl px-5 text-white"
+            className="btn rounded-xl px-5 text-white border-0 shadow-none"
             style={{ backgroundColor: accentColor }}
           >
             See More

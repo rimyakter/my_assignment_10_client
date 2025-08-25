@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <div
-      className="border-b border-white text-black bg-gradient-to-r from-white to-[#3a8ef6] shadow-md w-full sticky top-0 z-50"
+      className="header border-b border-white text-black bg-gradient-to-r from-white to-[#3a8ef6] shadow-md w-full sticky top-0 z-50"
       data-aos="fade-down"
     >
       <div className="w-11/12 mx-auto py-4 flex items-center justify-between">
@@ -95,12 +95,22 @@ const Header = () => {
               LogOut
             </button>
           ) : (
-            <Link
-              to="/login"
-              className="btn btn-sm bg-white text-black shadow-none"
-            >
-              Login
-            </Link>
+            <>
+              <div className="flex flex-col  space-y-1">
+                <Link
+                  to="/login"
+                  className="btn btn-sm bg-white text-black shadow-none border-black"
+                >
+                  Login
+                </Link>{" "}
+                <Link
+                  to="/register"
+                  className="btn btn-sm bg-white text-black shadow-none border-black"
+                >
+                  Register
+                </Link>{" "}
+              </div>
+            </>
           )}
 
           {user ? (

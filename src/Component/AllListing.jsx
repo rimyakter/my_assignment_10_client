@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 const AllListing = ({ data }) => {
   const { _id, title, location, rentAmount, roomType, availability } = data;
-  const accentColor = "#C85A3C";
+  const accentColor = "#1447E6";
 
   return (
     <div className="w-full h-full">

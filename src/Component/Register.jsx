@@ -1,11 +1,14 @@
 import React, { use } from "react";
-import { Link, useNavigate, useNavigation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
+import SocialLogin from "./SocialLogin";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createUser, user, setUser, updateUser } = use(AuthContext);
+  const location = useLocation();
+  const { createUser, user, setUser, updateUser, googleSignIn } =
+    use(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -61,6 +64,54 @@ const Register = () => {
       })
       .catch((error) => console.log(error));
   };
+
+  //Google Login
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+
+        // Prepare user data for MongoDB
+        const saveUser = {
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
+        };
+        // Send user to backend API
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("User saved:", data);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Google Login Successful",
+              showConfirmButton: false,
+              timer: 1000,
+            });
+            console.log(saveUser);
+            // Correct navigation
+            const redirectTo = location.state?.from || "/";
+            navigate(redirectTo, { replace: true });
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Google Login Failed! Try Again!",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      });
+  };
   return (
     <div>
       <div className="hero bg-base-200 py-5">
@@ -115,6 +166,9 @@ const Register = () => {
                 >
                   Register
                 </button>
+                <div onClick={handleGoogleLogin} className="w-full">
+                  <SocialLogin></SocialLogin>
+                </div>
               </fieldset>
               <p className="text-xs font-semibold">
                 Already Have An Account?{" "}
