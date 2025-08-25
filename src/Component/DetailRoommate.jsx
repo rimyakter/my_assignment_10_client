@@ -49,11 +49,14 @@ const DetailRoommate = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:5000/roommates/${_id}/like`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userEmail: user.email }),
-      });
+      const res = await fetch(
+        `https://my-assignment-10-server-xi.vercel.app/roommates/${_id}/like`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userEmail: user.email }),
+        }
+      );
 
       if (res.ok) {
         setLikeCount((prev) => prev + 1);
