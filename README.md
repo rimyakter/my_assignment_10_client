@@ -6,8 +6,7 @@ A modern platform that helps individuals find compatible roommates based on loca
 
 ## 🌐 Live Site
 
-[Visit the Live Website](#)  
-_(Replace `#` with your deployed site URL)_
+[Visit the Live Website](https://roommate-finder-256be.web.app/)
 
 ---
 
