@@ -79,7 +79,7 @@
 
 - react  
 - react-dom  
-- react-router-dom  
+- react-router 
 - firebase  
 - axios  
 - lottie-react  
