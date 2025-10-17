@@ -31,10 +31,10 @@
 - MongoDB  
 
 ### Authentication
-- Firebase Authentication (Email/Password + Google OAuth)  
+- Firebase Authentication (Email/Password )  
 
 ### Hosting
-- Client-side: Netlify / Surge / Firebase  
+- Client-side: Firebase  
 - Server-side: Vercel  
 
 ### Environment Variables
@@ -101,5 +101,5 @@
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/rimyakter/my-portfolio-client.git
-cd my-portfolio-client
+git clone https://github.com/rimyakter/my_assignment_10_client.git
+cd my_assignment_10_client
