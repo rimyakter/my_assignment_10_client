@@ -2,6 +2,9 @@
 
 A modern platform that helps individuals find compatible roommates based on location, budget, lifestyle preferences, and interests. Users can create profiles, browse listings, and connect via chat.
 
+
+![Roommate Finder Screenshot](https://i.ibb.co.com/BHnKs9Ds/roommate-Finder.png)  
+
 ---
 
 ## 🌐 Live Site
